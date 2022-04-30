@@ -72,8 +72,10 @@ The stored preprocessed training and test data set from the previous section avo
 
 Looking at the performance of the model on the test data, we obtain an accuracy of 96.15% with 88.98% recall of the fraud class (TNR), which is much better than the one in basic modelling, even though that the precision of the fraud is much lower (3.86%), but as mentioned above the actual fraud is more (to some extend). 
 
-![image](https://user-images.githubusercontent.com/52135942/166116524-49108ab7-574f-4d7e-9741-ceab34062b2f.png)
-![image](https://user-images.githubusercontent.com/52135942/166116535-c7f5592b-4e91-4435-bedf-f54ecaa30997.png)
+![image](https://user-images.githubusercontent.com/52135942/166116637-e5028d51-2568-4c33-9331-8ad2203ccdeb.png)
+
+![image](https://user-images.githubusercontent.com/52135942/166116638-529ca7b5-0727-48ab-be26-482e59658723.png)
+
 
 *	Naive Bayes: with optimizing the number of folds in the cross-validation, the accuracy of the test data is 94.01%, with an 88.98% recall of the fraud.
 
@@ -81,9 +83,12 @@ Looking at the performance of the model on the test data, we obtain an accuracy 
 
 *	KNN: the number of folds is optimized between 2 and 12-fold, and k of the KNN model is optimized between 2 and 10, getting the best k=10 and cross-Val-fold=12.
 
-![image](https://user-images.githubusercontent.com/52135942/166116603-b1cb3234-0db9-48ea-bb86-f1d3ebf0b081.png)
+![image](https://user-images.githubusercontent.com/52135942/166116648-039baf60-ce44-4ffe-87d4-4e7e932bf845.png)
 
-![image](https://user-images.githubusercontent.com/52135942/166116575-93befe4e-88bc-4c9d-8d26-4ada44d0f519.png)
+![image](https://user-images.githubusercontent.com/52135942/166116653-e0bea61c-3958-4bb3-8f5d-fb6d8307b5dd.png)
+
+
+
 
 
 
