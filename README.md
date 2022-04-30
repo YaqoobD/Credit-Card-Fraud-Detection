@@ -87,6 +87,75 @@ Looking at the performance of the model on the test data, we obtain an accuracy 
 
 ![image](https://user-images.githubusercontent.com/52135942/166116653-e0bea61c-3958-4bb3-8f5d-fb6d8307b5dd.png)
 
+### Ensemble (Voting)
+
+In this section, the voting ensemble technique is used to help choose the best model of the three. 
+
+In voting, to classify an example, each classifier has one vote, and the example is classified as the class having the highest votes.
+
+Using this technique with optimizing the hyperparameters (cross-valid-folds, k in KNN, max-depth, cross-val-fold in decision tree, and cross-val-fold in Naïve Bayes), an accuracy of 96.32% is obtained. The recall of the fraud is 88.98% which is less than the recall of fraud in optimized KNN, which means that voting does not give a better result.
+
+![image](https://user-images.githubusercontent.com/52135942/166116694-32ad0388-e4c9-4982-9382-8707c2e2c822.png)
+
+![image](https://user-images.githubusercontent.com/52135942/166116700-a3014db7-e447-4572-9bba-a6c6deb7afa9.png)
+
+![image](https://user-images.githubusercontent.com/52135942/166116708-d6ffed8d-29c4-464a-91b7-9691a8b162cb.png)
+
+![image](https://user-images.githubusercontent.com/52135942/166116713-f5c6b566-4c3e-451d-ad32-a82797858ca4.png)
+
+### Final Model: 
+
+Before discussing the result, another ensemble technique is used, which is Bagging.
+
+Bagging depends on bootstrapping technique where the training set for every classifier comes from a common training set by sampling and replacement. Then all the results are aggregated for Bagging.
+
+The bagging technique is applied to the three models. The following hyperparameters are fixed to their best values found so far, and the parameter optimization is applied to the sample ratio of the bagging operator. 
+
+![image](https://user-images.githubusercontent.com/52135942/166116742-96ba44b1-b9d3-467e-abb1-5b33368ddc2a.png)
+
+![image](https://user-images.githubusercontent.com/52135942/166116746-246e827b-c7ba-41cc-9e6a-3100b6552e87.png)
+
+The fixed parameters are:
+
+* KNN: k = 10, cross-valid-fold = 12
+* Decision Tree: max depth = 4.
+
+By applying this final design on the test data, the result is:
+*	Naïve Bayes: Accuracy= 93.94% with recall of fraud=88.98% 
+AUC =0.956, and ROC moved up closer to the perfection 
+
+
+![image](https://user-images.githubusercontent.com/52135942/166116767-2f5236df-2a17-4d8a-b07e-e9522eb8839d.png)
+
+*	Decision Tree: Accuracy =94.94% with the recall of fraud 90.68%, AUC=0.976, and ROC gets closer to the top left corner, which means the imbalance of cost gets reduced by using Bagging.
+
+![image](https://user-images.githubusercontent.com/52135942/166116792-4e6c5700-c2bd-428d-a36c-adefc71e35ee.png)
+
+![image](https://user-images.githubusercontent.com/52135942/166116797-f0c63fe5-fe72-4f0e-9580-e37aa04fdf80.png)
+
+*	KNN: Accuracy is 98.17% with recall of fraud = 92.37%,
+The error-type-1 (FPR) = 1 - 92.37% = 7.63%
+The error-type-2 (FNR) = 1 - 98.18% = 1.82%
+This means the two types of errors get much smaller, and the cost of imbalance is reasonably reduced. 
+AUC= 0.983, and the ROC is almost perfectly good
+
+![image](https://user-images.githubusercontent.com/52135942/166116807-c13dd82d-1662-42c3-8151-95a2c4047e52.png)
+
+![image](https://user-images.githubusercontent.com/52135942/166116815-6f8af974-2098-4bd8-836c-7eb2000e33f7.png)
+
+The KNN model with these final configurations has the best performance and give the best prediction of the fraud even though it is not highly accurate in predicting the correct transaction as many correct transactions may be considered as a fraud.
+
+![image](https://user-images.githubusercontent.com/52135942/166116825-9892440f-9195-4567-8e1c-34e68cbfc70c.png)
+
+The predicted data (using KNN) show that there are 118 fraudulent transactions in the original test data, and 1352 transactions are predicted as fraud. This is resulted because of the imbalance in the cost between the two classes. Still, we accept that detecting the actual fraud is more important than determining a correct transaction as fraud.
+
+
+
+
+
+
+
+
 
 
 
