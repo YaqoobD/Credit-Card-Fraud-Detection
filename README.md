@@ -1,4 +1,4 @@
-# Credit-Card-Fraud-Detection
+# Credit-Card-Fraud-Detection-Rapidminer
 
 ## Introduction to the Data:
 The data contains credit card transactions over a period of time, and the aim is to determine the fraudulent transactions so that the customers are not charged for items they did not purchase.
@@ -44,6 +44,47 @@ In the screenshot attached above and below, the process is provided for your ref
 ![image](https://user-images.githubusercontent.com/52135942/166114896-b200e3d0-8cf6-4ef2-bd95-1232afcef03f.png)
 
 We can assume that the decision tree's performance is much better than other algorithms and good precision and sufficient recall numbers by looking at the results.
+
+## Task 2
+### Data Preparation 
+In this stage, the data is prepared for modelling and refinement:
+
+*	The unprocessed training and test data are obtained by executing the file Exam-1-import (section 1).
+*	By analyzing the data, there are no missing values
+*	Any duplicated examples in the training set are checked and removed.
+*	The training set is normalized (transformed to get variables with mean=0 and standard deviation std=1), a dimension reduction method (PCA) is applied (to keep 95% of the total variance, 27 attributes have remained in the output of the PCA, which gives the impression that the original data (numerical ones) is almost uncorrelated and might be the output of another PCA operation).
+*	The normalized and PCA models are grouped to be applied on the test set later to keep the exact dimensions.
+*	Finally, the preprocessed training and test data are stored in the local repository to save preprocessing time each time we run the model.
+
+![image](https://user-images.githubusercontent.com/52135942/166115979-a939b09d-9e6c-441f-8db7-6b77359e8e69.png)
+
+### Hyperparameter Optimization
+
+The stored preprocessed training and test data set from the previous section avoid imbalance classes mentioned before. The classes (correct, fraud) are to be balanced using sample operation.
+
+![image](https://user-images.githubusercontent.com/52135942/166116002-e5ca42ed-82df-4391-b143-fc7ff98fca04.png)
+![image](https://user-images.githubusercontent.com/52135942/166116006-b28c5ab5-56a6-4336-adbb-8127a62e6f8f.png)
+
+*	Decision Tree: the number of folds in cross-validation and the max depth of the tree are optimized using optimize parameter operation. The best result is by using cross-validation of 20 folds and tree with max-depth=4.
+
+![image](https://user-images.githubusercontent.com/52135942/166116030-548d0655-9ec4-4d77-8fb3-581b075c606f.png)
+
+
+Looking at the performance of the model on the test data, we obtain an accuracy of 96.15% with 88.98% recall of the fraud class (TNR), which is much better than the one in basic modelling, even though that the precision of the fraud is much lower (3.86%), but as mentioned above the actual fraud is more (to some extend). 
+
+![image](https://user-images.githubusercontent.com/52135942/166116524-49108ab7-574f-4d7e-9741-ceab34062b2f.png)
+![image](https://user-images.githubusercontent.com/52135942/166116535-c7f5592b-4e91-4435-bedf-f54ecaa30997.png)
+
+*	Naive Bayes: with optimizing the number of folds in the cross-validation, the accuracy of the test data is 94.01%, with an 88.98% recall of the fraud.
+
+![image](https://user-images.githubusercontent.com/52135942/166116546-1f5b05df-82b7-41c5-ae3c-bef45f576cb6.png)
+
+*	KNN: the number of folds is optimized between 2 and 12-fold, and k of the KNN model is optimized between 2 and 10, getting the best k=10 and cross-Val-fold=12.
+
+![image](https://user-images.githubusercontent.com/52135942/166116603-b1cb3234-0db9-48ea-bb86-f1d3ebf0b081.png)
+
+![image](https://user-images.githubusercontent.com/52135942/166116575-93befe4e-88bc-4c9d-8d26-4ada44d0f519.png)
+
 
 
 
