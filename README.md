@@ -1,6 +1,7 @@
-# Credit-Card-Fraud-Detection-Rapidminer
+# Credit Card Fraud Detection using RapidMiner! 🕵️‍♂️💳
 
-## Introduction to the Data:
+## Introduction to the Data: 📊
+
 The data contains credit card transactions over a period of time, and the aim is to determine the fraudulent transactions so that the customers are not charged for items they did not purchase.
 
 The data has 227,846 transaction examples, including 394 fraudulent ones.
@@ -8,9 +9,9 @@ There are 28 numerical attributes (v1 to v28), the 'time' attribute refers to th
 
 The task is a classification task, which should determine the future fraudulent transactions depending on the given historical data. A detailed look at the data is imbalanced (the fraud is 0.173% of the total).
 
-## Task 1 
+## Task 1: 
 
-### Basic Workflow 
+### Basic Workflow 📝
 
 In this initial stage of workflow:
  
@@ -21,7 +22,7 @@ In the screenshot attached below, the process is provided for your reference.
 
 ![image](https://user-images.githubusercontent.com/52135942/166114844-782e30b3-72c5-4189-a9eb-62a592fceadf.png)
 
-### Modeling (file: Final Exam basic model import) 
+### Modeling (file: Final Exam basic model import) 🧪💻📊
 
 *Note: in this basic modelling, it took about one hour to train the data using KNN (k=5) for one-fold; therefore, my CPU did not help to do cross-validation on KNN in this stage.
 Now let us take an overview of the behaviour of the data and apply three classification algorithms without any refinement.
@@ -46,7 +47,7 @@ In the screenshot attached above and below, the process is provided for your ref
 We can assume that the decision tree's performance is much better than other algorithms and good precision and sufficient recall numbers by looking at the results.
 
 ## Task 2
-### Data Preparation 
+### Data Preparation ✨ 
 In this stage, the data is prepared for modelling and refinement:
 
 *	The unprocessed training and test data are obtained by executing the file Exam-1-import (section 1).
@@ -58,7 +59,7 @@ In this stage, the data is prepared for modelling and refinement:
 
 ![image](https://user-images.githubusercontent.com/52135942/166115979-a939b09d-9e6c-441f-8db7-6b77359e8e69.png)
 
-### Hyperparameter Optimization
+### Hyperparameter Optimization 🎯
 
 The stored preprocessed training and test data set from the previous section avoid imbalance classes mentioned before. The classes (correct, fraud) are to be balanced using sample operation.
 
@@ -87,7 +88,7 @@ Looking at the performance of the model on the test data, we obtain an accuracy 
 
 ![image](https://user-images.githubusercontent.com/52135942/166116653-e0bea61c-3958-4bb3-8f5d-fb6d8307b5dd.png)
 
-### Ensemble (Voting)
+### Ensemble (Voting) 🤝
 
 In this section, the voting ensemble technique is used to help choose the best model of the three. 
 
@@ -103,7 +104,7 @@ Using this technique with optimizing the hyperparameters (cross-valid-folds, k i
 
 ![image](https://user-images.githubusercontent.com/52135942/166116713-f5c6b566-4c3e-451d-ad32-a82797858ca4.png)
 
-### Final Model: 
+### Final Model: 🏆 
 
 Before discussing the result, another ensemble technique is used, which is Bagging.
 
